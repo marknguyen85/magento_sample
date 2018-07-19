@@ -1,0 +1,87 @@
+<script type="text/javascript">
+    require([
+        'jquery', "uiRegistry"
+    ], function ($, uiRegistry) {
+        'use strict';
+        var colors = {1 : "#000000", 2 : '#FFFFFF', 3:'#E60012', 4:'#F39800', 5:'#FFF100', 6:'#6A0B07', 7:'#AA2A83', 8:'#EB0091', 9:'#FA91D0', 10:'#8FC31F', 11:'#009944', 12:'#13A9A0', 13:'#00A0E9', 14:'#1D2088'};
+        //DuyTN6645 : Get field on change
+        $('#container').on('change', 'input[name=name]', function () {
+            showPreview();
+        });
+        $('#container').on('change', 'select[name=bg_color]', function () {
+            showPreview();
+        });
+        $('#container').on('change', 'select[name=font_color]', function () {
+            showPreview();
+        });
+
+        var isLoading = true;
+        //
+        setInterval(function(){
+            //DuyTN6645 : Check if element IconPreview show up to show preview
+            if (isLoading && $("#IconPreview").length ) {
+                showPreview();
+                setCheckBox();
+                isLoading = false;
+            }
+
+        }, 1000);
+        function showPreview() {
+
+            // 背景色が「白」の場合は、文字色と同じ色の枠線を付ける
+            if ($('select[name=bg_color]').val() == 2) {
+
+                var color = "";
+                var bgcolor = "";
+                //文字色
+                color = colors[$('select[name=font_color]').val()];
+                $("#IconPreview").css('color', color);
+                $("#IconPreview").css('background-color', "");
+                $("#IconPreview").css('border', "solid 1px " + color);
+                $("#IconPreview").text($('input[name=name]').val());
+
+                console.log("背景色なし");
+                console.log("color:" + color);
+
+            } else {
+                // 背景色ある場合は、文字色、背景色を付ける
+
+                var color = "";
+                var bgcolor = "";
+
+                // 文字色
+                color = colors[$('select[name=font_color]').val()];
+                bgcolor = colors[$('select[name=bg_color]').val()];
+                // 背景色
+
+
+                $("#IconPreview").css('color', color);
+                $("#IconPreview").css('background-color', bgcolor);
+                $("#IconPreview").css('border', "solid 1px " + bgcolor);
+                $("#IconPreview").text($('input[name=name]').val());
+                console.log("背景色あり");
+                console.log("color:" + color);
+                console.log("bgcolor:" + bgcolor);
+            }
+
+        }
+
+        //DuyTN6645 : Set check box default value when create new
+        function setCheckBox() {
+            uiRegistry.get("icon_index_form.tougou_icon_index_form.icon.is_list", function (element) {
+                if(element['initialValue'] == "") {
+                    element.value(1);
+                    $('.is_list #1').click();
+                }
+            });
+            uiRegistry.get("icon_index_form.tougou_icon_index_form.icon.is_detail", function (element) {
+                if(element['initialValue'] == "") {
+                    element.value(1);
+                    $('.is_detail #3').click();
+                }
+            });
+        }
+
+    });
+
+</script>

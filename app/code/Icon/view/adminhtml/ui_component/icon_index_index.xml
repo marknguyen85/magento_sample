@@ -1,0 +1,245 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!-- was: <?xml version="1.0" ?> -->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="context" xsi:type="configurableObject">
+        <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\Context</argument>
+        <argument name="namespace" xsi:type="string">Icon_index_index</argument>
+    </argument>
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">icon_index_index.icon_index_index_data_source</item>
+            <item name="deps" xsi:type="string">icon_index_index.icon_index_index_data_source</item>
+        </item>
+        <item name="spinner" xsi:type="string">icon_icon_columns</item>
+        <item name="buttons" xsi:type="array">
+            <item name="add" xsi:type="array">
+                <item name="name" xsi:type="string">add</item>
+                <item name="label" translate="true" xsi:type="string">Add new Icon</item>
+                <item name="class" xsi:type="string">primary</item>
+                <item name="url" xsi:type="string">*/*/new</item>
+            </item>
+        </item>
+    </argument>
+    <dataSource name="icon_index_index_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
+            <argument name="name" xsi:type="string">icon_index_index_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">icon_id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+                    <item name="update_url" path="mui/index/render" xsi:type="url"/>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="indexField" xsi:type="string">icon_id</item>
+                    </item>
+                    <item name="filter_url_params" xsi:type="array">
+                        <item name="status" xsi:type="string">*</item>
+                    </item>
+                </item>
+            </argument>
+        </argument>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="sticky" xsi:type="boolean">true</item>
+            </item>
+        </argument>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filterSearch name="fulltext"/>
+        <filters name="listing_filters"/>
+        <massaction name="listing_massaction">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="selectProvider" xsi:type="string">icon_index_index.icon_index_index.icon_icon_columns.ids</item>
+                    <item name="indexField" xsi:type="string">icon_id</item>
+                </item>
+            </argument>
+            <action name="edit">
+                <settings>
+                    <callback>
+                        <target>editSelected</target>
+                        <provider>icon_index_index.icon_index_index.icon_icon_columns_editor</provider>
+                    </callback>
+                    <type>edit</type>
+                    <label translate="true">Edit</label>
+                </settings>
+            </action>
+        </massaction>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <columns name="icon_icon_columns">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="editorConfig" xsi:type="array">
+                    <item name="selectProvider" xsi:type="string">icon_index_index.icon_index_index.icon_icon_columns.ids</item>
+                    <item name="enabled" xsi:type="boolean">true</item>
+                    <item name="indexField" xsi:type="string">icon_id</item>
+                    <item name="clientConfig" xsi:type="array">
+                        <item name="saveUrl" path="icon/index/inlineEdit" xsi:type="url"/>
+                        <item name="validateBeforeSave" xsi:type="boolean">false</item>
+                    </item>
+                </item>
+                <item name="childDefaults" xsi:type="array">
+                    <item name="fieldAction" xsi:type="array">
+                        <item name="provider" xsi:type="string">icon_index_index.icon_index_index.icon_icon_columns_editor</item>
+                        <item name="target" xsi:type="string">startEdit</item>
+                        <item name="params" xsi:type="array">
+                            <item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
+                            <item name="1" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
+                </item>
+            </item>
+        </argument>
+        <selectionsColumn name="ids">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="indexField" xsi:type="string">icon_id</item>
+                </item>
+            </argument>
+        </selectionsColumn>
+        <column name="site_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <!--<item name="filter" xsi:type="string">text</item>-->
+                    <item name="label" xsi:type="string" translate="true">サイトID</item>
+                    <item name="sortOrder" xsi:type="number">1</item>
+                </item>
+            </argument>
+        </column>
+
+        <column name="site_name">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Icon\Model\Config\Source\Website</item>
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">select</item>
+                    <item name="label" xsi:type="string" translate="true">サイト名</item>
+                    <item name="sortOrder" xsi:type="number">2</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
+                    <item name="dataType" xsi:type="string">select</item>
+                </item>
+            </argument>
+        </column>
+        <column name="code">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">アイコンコード</item>
+                    <item name="sortOrder" xsi:type="number">3</item>
+                </item>
+            </argument>
+        </column>
+        <column name="name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">アイコン名</item>
+                    <item name="sortOrder" xsi:type="number">4</item>
+                </item>
+            </argument>
+        </column>
+        <column name="bg_color">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Icon\Model\Config\Source\Color</item>
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">select</item>
+                    <item name="label" xsi:type="string" translate="true">背景色</item>
+                    <item name="sortOrder" xsi:type="number">5</item>
+                    <item name="fieldClass" xsi:type="string" translate="true">tougoubgcolor</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
+                    <item name="dataType" xsi:type="string">select</item>
+                </item>
+            </argument>
+        </column>
+        <column name="font_color">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Icon\Model\Config\Source\Color</item>
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">select</item>
+                    <item name="label" xsi:type="string" translate="true">文字色</item>
+                    <item name="sortOrder" xsi:type="number">6</item>
+                    <item name="fieldClass" xsi:type="string" translate="true">tougoufontcolor</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
+                    <item name="dataType" xsi:type="string">select</item>
+                </item>
+            </argument>
+        </column>
+        <column name="preview" class="Icon\Ui\Component\Listing\Column\Preview">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="sortable" xsi:type="boolean">false</item>
+                    <item name="label" xsi:type="string" translate="true">アイコンプレビュー</item>
+                    <item name="fieldClass" xsi:type="string" translate="true">tougoupreview</item>
+                    <item name="sortOrder" xsi:type="number">7</item>
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
+                </item>
+            </argument>
+        </column>
+
+        <column name="is_list">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Icon\Ui\Component\Listing\Column\IsList</item>
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">select</item>
+                    <item name="label" xsi:type="string" translate="true">一覧画面表示フラグ</item>
+                    <item name="sortOrder" xsi:type="number">8</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
+                    <item name="dataType" xsi:type="string">select</item>
+                </item>
+            </argument>
+        </column>
+        <column name="is_detail">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Icon\Ui\Component\Listing\Column\IsList</item>
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">select</item>
+                    <item name="label" xsi:type="string" translate="true">詳細画面表示フラグ</item>
+                    <item name="sortOrder" xsi:type="number">9</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
+                    <item name="dataType" xsi:type="string">select</item>
+                </item>
+            </argument>
+        </column>
+        <column name="seq">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">アイコン表示順</item>
+                    <item name="sortOrder" xsi:type="number">10</item>
+                    <item name="editor" xsi:type="array">
+                        <item name="validation" xsi:type="array">
+                            <item name="required-entry" xsi:type="boolean">true</item>
+                            <item name="validate-number" xsi:type="boolean">true</item>
+                            <item name="validate-zero-or-greater" xsi:type="boolean">true</item>
+                            <item name="max_text_length" xsi:type="number">8</item>
+                        </item>
+                        <item name="editorType" xsi:type="string">text</item>
+                    </item>
+                </item>
+            </argument>
+        </column>
+        <column name="comment" class="Icon\Ui\Component\Listing\Column\Comment">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">コメント</item>
+                    <item name="sortOrder" xsi:type="number">11</item>
+                </item>
+            </argument>
+        </column>
+        <actionsColumn name="actions" class="Icon\Ui\Component\Listing\Column\IconActions">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="resizeEnabled" xsi:type="boolean">false</item>
+                    <item name="resizeDefaultWidth" xsi:type="string">107</item>
+                    <item name="indexField" xsi:type="string">icon_id</item>
+                    <item name="sortOrder" xsi:type="number">13</item>
+                    <item name="label" xsi:type="string" translate="true">アクション</item>
+                </item>
+            </argument>
+        </actionsColumn>
+    </columns>
+</listing>
