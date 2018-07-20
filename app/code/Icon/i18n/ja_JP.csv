@@ -1,0 +1,63 @@
+Back,戻る
+Save,保存
+"Unable to proceed. Please, try again.","実行できません。もう一度実行をお願いします。"
+"This icon is not deletable","このアイコンは品揃えで設定しています。削除できません。"
+"Your icon has been deleted !","アイコンが削除されました。"
+"Error while trying to delete icon: ","アイコンを削除中にエラーが発生しました。 "
+"This Icon no longer exists.","このアイコンは存在しません。"
+"Edit Icon","アイコンを編集"
+"New Icon","新規アイコンを追加"
+Icon,アイコン
+"Please correct the data sent.","データを正しくしてください"
+"A total of %1 record(s) have been deleted.","合計%1のレコードが削除されました。"
+"You saved the Icon.","アイコンを保存しました。"
+"Something went wrong while saving the Icon.","アイコンを保存中に問題が発生しました。"
+黒,黒
+白,白
+赤,赤
+オレンジ,オレンジ
+黄色,黄色
+深赤,深赤
+マゼンタ,マゼンタ
+濃ピンク,濃ピンク
+薄ピンク,薄ピンク
+黄緑,黄緑
+緑,緑
+青緑,青緑
+水色,水色
+青,青
+" "," "
+Edit,編集
+Delete,削除
+Attention,注目
+"Are you sure you want to delete ${ $.$data.name } icon?","アイコン${ $.$data.name }を削除してもよろしいですか？"
+Yes,有り
+No,無し
+"Icon Management","アイコン管理"
+View,検索
+Create,追加
+アイコン管理,アイコン管理
+アイコン検索,アイコン検索
+"Icon Information","アイコン情報"
+サイトID,サイトID
+アイコンコード,アイコンコード
+アイコン名,アイコン名
+背景色,背景色
+文字色,文字色
+コメント,コメント
+一覧画面表示フラグ,一覧画面表示フラグ
+詳細画面表示フラグ,詳細画面表示フラグ
+アイコン表示順,アイコン表示順
+"Add new Icon","新規アイコンを追加"
+"Delete Icon","アイコンを削除"
+"Are you sure you want to delete selected Icon?","選択したアイコンを削除してもよろしいですか？"
+サイト名,サイト名
+tougoubgcolor,tougoubgcolor
+tougoufontcolor,tougoufontcolor
+アイコンプレビュー,アイコンプレビュー
+tougoupreview,tougoupreview
+アクション,アクション
+"You haven't selected any items!","アイコンを選択してください。"
+"This icon is used in Product","このアイコンは品揃えで設定しています。削除できません。"
+"This icon is used in Product Plan","このアイコンは商品企画で設定しています。削除できません。"
+"This icon is used in Sale","このアイコンは販促で設定しています。削除できません。"

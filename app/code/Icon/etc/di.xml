@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="cowell_icon_index_index_data_source" xsi:type="string">Cowell\Icon\Model\ResourceModel\Icon\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Cowell\Icon\Model\ResourceModel\Icon\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">icon</argument>
+            <argument name="eventPrefix" xsi:type="string">cowell_icon_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">icon_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Cowell\Icon\Model\Resource\Icon</argument>
+        </arguments>
+    </type>
+</config>

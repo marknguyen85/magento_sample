@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <update id="Icon_Management::index" translate="title" title="アイコン管理" module="Cowell_Icon" sortOrder="51" resource="Icon_Management::index"/>
+        <add id="Cowell_Icon::icons" title="アイコン検索" translate="title" module="Cowell_Icon" sortOrder="10" action="Cowell_icon/index/index" resource="Cowell_Icon::icons" parent="Icon_Management::index"/>
+    </menu>
+</config>
