@@ -126,6 +126,5 @@ return [
         'Shopial_Facebook' => 1,
         'Temando_Shipping' => 1,
         'Vertex_Tax' => 1,
-        'Icon' => 1
     ]
 ];
