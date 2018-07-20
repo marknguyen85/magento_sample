@@ -6,7 +6,7 @@
  * Time: 3:00 PM
  */
  
-namespace Discount\Code\Observer;
+namespace Cowell\Discount\Observer;
  
 use Magento\Framework\Event\ObserverInterface;
  
