@@ -28,7 +28,7 @@ class DiscountPrice implements ObserverInterface
         $new_price = $price - ($price * 75 / 100); //discount the price by 75%
         $item->setCustomPrice($new_price);
         $item->setOriginalCustomPrice($new_price);
-        $item->getProduct->setIsSuperMode(true);
+        $item->getProduct()->setIsSuperMode(true);
  
         $writer = new \Zend\Log\Writer\Stream(BP . '/var/log/testObserver.log');
         $logger = new \Zend\Log\Logger();
