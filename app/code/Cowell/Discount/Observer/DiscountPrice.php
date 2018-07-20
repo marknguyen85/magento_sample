@@ -29,10 +29,5 @@ class DiscountPrice implements ObserverInterface
         $item->setCustomPrice($new_price);
         $item->setOriginalCustomPrice($new_price);
         $item->getProduct()->setIsSuperMode(true);
- 
-        $writer = new \Zend\Log\Writer\Stream(BP . '/var/log/testObserver.log');
-        $logger = new \Zend\Log\Logger();
-        $logger->addWriter($writer);
-        $logger->info($observer);
     }
 }
